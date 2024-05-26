@@ -1,7 +1,13 @@
 {
   "expo": {
     "name": "MyBudget",
-    "slug": "MyBudget",
-    "version": "1.0.0"
+    "slug": "mybudget",
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "d1caf63a-5775-4840-8491-0ecec9072971"
+      }
+    },
+    "owner": "hunardeep"
   }
 }
