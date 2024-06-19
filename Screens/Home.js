@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, ScrollView, TouchableOpacity, Button } from "react-native";
 import Table from "../Components/Table";
 import ChartBar from "../Components/ChartBar";
 import { SetLimit } from "../Components/SetLimit";
+import { loadDatabase } from "../Database/Data";
 
 function Home() {
   const [isPressed, setIsPressed] = useState(false);
@@ -21,6 +22,11 @@ function Home() {
     "Electronics",
     "Miscellaneous",
   ];
+
+  useEffect(()=>{
+    loadDatabase().then(()=>(console.log("database loaded"))).catch((err)=>{console.log('error while loading database',err)})
+  },[]);
+
   const [data, setData] = useState([
     { date: "01/05/24", category: "Food", amount: "50" },
     { date: "02/05/24", category: "Clothing", amount: "30" },
@@ -32,6 +38,7 @@ function Home() {
     { date: "09/05/24", category: "Electronics", amount: "200" },
     { date: "10/05/24", category: "Miscellaneous", amount: "70" },
   ]);
+
   return (
     <ScrollView>
       <View className="text-center w-full flex-1">
